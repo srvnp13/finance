@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Qoute
+{% endblock %}
+
+{% block main %}
+    <form action="/qoute" method="post">
+        <label for="symbol">Symbol</label>
+        <input type="text" name="symbol" id="symbol" placeholder="Symbol">
+        <button type="submit">Qoute</button>
+    </form>
+    {% if qoute %}
+        <h3>{{ qoute['name'] }} ({{ qoute['symbol'] }})</h3>
+        <p>Price: {{ qoute['price']|usd }}</p>
+    {% endif %}
+{% endblock %}
